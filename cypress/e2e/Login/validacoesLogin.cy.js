@@ -6,7 +6,6 @@ describe('Biblioteca - Validar Login',()=>{
     });
 
     it("Realizar login com credenciais válidas",()=>{
-        cy.visit('index.html')
         cy.get('#login-email').type('qa@biblioteca.com')
         cy.get('[data-cy="login-password"]').type('Cypress123!')
         cy.get('button[data-cy="login-submit"]').click()
@@ -16,7 +15,6 @@ describe('Biblioteca - Validar Login',()=>{
     })
 
     it('Realizar Cadastro de Usuario', () => {
-        cy.visit('index.html')
         cy.get('[data-cy="tab-register"]').click()
         cy.get('[data-cy="register-name"]').type('Ric')
         cy.get('[data-cy="register-email"]').type('teste@test.com')
