@@ -2,7 +2,7 @@
 
 describe('Biblioteca - Validar Login',()=>{
 
-    it("Realizar login com credenciais válidas",()=>{
+    it("Acessar url com sucesso",()=>{
         cy.visit('index.html')
         cy.get('#login-email').type('qa@biblioteca.com')
         cy.get('[data-cy="login-password"]').type('Cypress123!')

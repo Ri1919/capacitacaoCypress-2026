@@ -1,0 +1,20 @@
+
+{
+    "livro1":{
+        "nome": "1984",
+        "autor": "George Orwell",
+        "Ano": "1996",
+        "ISBN": "654896465",
+        "quantidade":"5",
+        "tipo":"Ficção"
+    },
+    "livro2":{
+        "nome": "1984",
+        "autor": "George Orwell",
+        "Ano": "1996",
+        "ISBN": "654896465",
+        "quantidade":"5",
+        "tipo":"Ficção"
+    }
+
+}

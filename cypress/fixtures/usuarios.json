@@ -1,0 +1,10 @@
+{
+    "valido":{
+        "email":"qa@biblioteca.com",
+        "senha":"Cypress123!"
+    },
+    "invalido":{
+        "email":"qa@biblioteca.com",
+        "senha":"Cypress123!"  
+    }
+}

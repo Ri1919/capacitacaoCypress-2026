@@ -2,7 +2,7 @@
 
 describe('Biblioteca - Validar Login',()=>{
     beforeEach(() => {
-        cy.visit('index.html')
+        cy.visit('/')
     });
 
     it("Realizar login com credenciais válidas",()=>{
@@ -16,8 +16,8 @@ describe('Biblioteca - Validar Login',()=>{
 
     it('Realizar Cadastro de Usuario', () => {
         cy.get('[data-cy="tab-register"]').click()
-        cy.get('[data-cy="register-name"]').type('Ric')
-        cy.get('[data-cy="register-email"]').type('teste@test.com')
+        cy.get('[data-cy="register-name"]').type('Dayane')
+        cy.get('[data-cy="register-email"]').type('dayane@test.com')
         cy.get('[data-cy="register-password"]').type('Cypress123')
         cy.get('[data-cy="register-confirm-password"]').type('Cypress123')
         cy.get('[data-cy="register-phone"]').type('83 988457625')
@@ -30,12 +30,33 @@ describe('Biblioteca - Validar Login',()=>{
     });
 
     it('Realizar login com email inválido', () => {
-        cy.get('#login-email').type('teste@gmail.com')
+        cy.get('#login-email').type('dayane@gmail.com')
         cy.get('[data-cy="login-password"]').type('Cypress123!')
         cy.get('button[data-cy="login-submit"]').click()
-        //Então a mensagem de email/senha inválida deve estar visivel
-        cy.get('div[class="notice show error"]').should('be.visible')
-        //Validar se contem o texto: E-mail ou senha inválidos.
+        cy.get('div[id="login-panel"] > h2').should('have.text','Acesse sua conta')
         
     });
+
+    it('Realizar logout', () => {
+        cy.get('#login-email').type('qa@biblioteca.com')
+        cy.get('[data-cy="login-password"]').type('Cypress123!')
+        cy.get('button[data-cy="login-submit"]').click()
+        cy.get('[data-cy="current-user"]').should('be.visible')
+        cy.get('[data-cy="logout-button"]').click()
+        cy.get('div[id="login-panel"] > h2').should('have.text','Acesse sua conta')
+    });
+
+    it.only('Realizar login válido usando o fixtures', () => {
+        cy.fixture('usuarios').then((massaDados) =>{
+            const usuario = massaDados["valido"];
+            cy.get('#login-email').type(usuario.email)
+            cy.get('[data-cy="login-password"]').type(usuario.senha)
+        })
+        cy.get('button[data-cy="login-submit"]').click()
+        cy.get('[data-cy="current-user"]').should('be.visible')
+        cy.get('[data-cy="current-user"]').should('have.text','QA Demonstração')
+
+    });
+    //Fazer o teste usando o usuario invalido
 })
+
