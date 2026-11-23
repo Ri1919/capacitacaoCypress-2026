@@ -6,15 +6,15 @@
         "Ano": "1996",
         "ISBN": "654896465",
         "quantidade":"5",
-        "tipo":"Ficção"
+        "categoria":"Ficção"
     },
     "livro2":{
-        "nome": "1984",
-        "autor": "George Orwell",
-        "Ano": "1996",
+        "nome": "Engenharia de prompt para devs",
+        "autor": "Ricard Pupo",
+        "Ano": "2025",
         "ISBN": "654896465",
-        "quantidade":"5",
-        "tipo":"Ficção"
+        "quantidade":"3",
+        "categoria":"Tecnologia"
     }
 
 }
